@@ -19,13 +19,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
 /* ── API Routes ── */
-app.use('/api/auth',     require('./routes/auth'));
-app.use('/api/vehicles', require('./routes/vehicles'));
-app.use('/api/drivers',  require('./routes/drivers'));
-app.use('/api/routes',   require('./routes/routes'));
-app.use('/api/issues',   require('./routes/issues'));
-app.use('/api/gps',      require('./routes/gps'));
-app.use('/api/stats',    require('./routes/stats'));
+app.use('/api/auth',     require('../routes/auth'));
+app.use('/api/vehicles', require('../routes/vehicles'));
+app.use('/api/drivers',  require('../routes/driver'));
+app.use('/api/routes',   require('../routes/routes'));
+app.use('/api/issues',   require('../routes/issues'));
+app.use('/api/gps',      require('../routes/gps'));
+app.use('/api/stats',    require('../routes/stats'));
 
 /* ── Health check ── */
 app.get('/api/health', (req, res) => res.json({ status: 'ok', time: new Date().toISOString() }));
