@@ -5,7 +5,7 @@ const cors         = require('cors');
 const path         = require('path');
 
 // Initialise DB first (creates tables + seeds admin)
-require('./db');
+require('../db');
 
 const app = express();
 
