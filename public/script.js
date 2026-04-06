@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
  
 /* ── SAIRAM POLYTECHNIC COLLEGE coords ── */
-const SAIRAM = { lat: 13.0358, lng: 80.0911 };
+const SAIRAM = { lat:12.962438925493098, lng:80.05998206870437 };
  
 /* ── STATE ── */
 let vehicles = JSON.parse(localStorage.getItem('fx_v')) || [];
