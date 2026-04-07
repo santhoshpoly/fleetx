@@ -9,7 +9,7 @@ Full-stack fleet management dashboard with real backend, SQLite database, JWT au
 | Layer      | Technology                        |
 |------------|-----------------------------------|
 | Backend    | Node.js + Express                 |
-| Database   | SQLite (via better-sqlite3)       |
+| Database   | PostgreSQL     |
 | Auth       | JWT (jsonwebtoken) + bcryptjs     |
 | Frontend   | Vanilla HTML/CSS/JS               |
 | Maps       | Leaflet + OpenStreetMap (free)    |
