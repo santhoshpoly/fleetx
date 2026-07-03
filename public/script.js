@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('#logoImg,#sidebarLogoImg').forEach(img => img.src = LOGO_SRC);
 });
  
-/* ── SAIRAM POLYTECHNIC COLLEGE coords ── */
-const SAIRAM = { lat:12.962438925493098, lng:80.05998206870437 };
+/* ── BHARATH COLLEGE coords ── */
+const BHARATH = { lat:12.896400, lng:80.143500 };
  
 /* ── STATE ── */
 let vehicles = JSON.parse(localStorage.getItem('fx_v')) || [];
@@ -296,7 +296,7 @@ function haversine(lat1,lon1,lat2,lon2){
 }
  
 function updateDistPanel(lat,lng){
-  const dist=haversine(lat,lng,SAIRAM.lat,SAIRAM.lng);
+  const dist=haversine(lat,lng,BHARATH.lat,BHARATH.lng);
   const dEl=document.getElementById('distanceVal'),eEl=document.getElementById('etaVal');
   if(dEl)dEl.textContent=dist.toFixed(2)+' km away';
   if(eEl){const m=Math.round((dist/40)*60);eEl.textContent=m<60?`${m} min`:`${Math.floor(m/60)}h ${m%60}m`;}
@@ -307,8 +307,8 @@ function initMap(){
   if(leafMap)return;
   leafMap=L.map('map',{zoomControl:true,attributionControl:true});
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors',maxZoom:19}).addTo(leafMap);
-  destMarker=L.marker([SAIRAM.lat,SAIRAM.lng],{icon:makeIcon('🏫','#8c3535',40)}).addTo(leafMap)
-    .bindPopup('<div style="font-family:DM Sans,sans-serif;min-width:175px"><strong>🏫 Sairam Polytechnic College</strong><br><span style="font-size:12px;color:#888">West Chennai, Tamil Nadu</span><br><span style="font-size:11px;color:#a07840">📍 13.0358°N, 80.0911°E</span></div>').openPopup();
+  destMarker=L.marker([BHARATH.lat,BHARATH.lng],{icon:makeIcon('🏫','#8c3535',40)}).addTo(leafMap)
+    .bindPopup('<div style="font-family:DM Sans,sans-serif;min-width:175px"><strong>🏫 Bharath College</strong><br><span style="font-size:12px;color:#888">Selaiyur, Chennai, Tamil Nadu</span><br><span style="font-size:11px;color:#a07840">📍 13.0358°N, 80.0911°E</span></div>').openPopup();
   if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(
       pos=>{userLat=pos.coords.latitude;userLng=pos.coords.longitude;setupMap(userLat,userLng,'Your GPS Location');},
@@ -318,7 +318,7 @@ function initMap(){
 }
  
 function setupMap(lat,lng,locName){
-  leafMap.fitBounds(L.latLngBounds([[lat,lng],[SAIRAM.lat,SAIRAM.lng]]),{padding:[60,60]});
+  leafMap.fitBounds(L.latLngBounds([[lat,lng],[BHARATH.lat,BHARATH.lng]]),{padding:[60,60]});
   if(userMarker)userMarker.remove();
   userMarker=L.marker([lat,lng],{icon:makeIcon('📍','#c9a060',38)}).addTo(leafMap)
     .bindPopup(`<div style="font-family:DM Sans,sans-serif"><strong>Fleet Base</strong><br><span style="font-size:12px;color:#888">${locName}</span></div>`);
